@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>@@@ | Home</title>
+	<!--#include file="include/head-tags.html" -->
+  <script type="text/javascript">
+		
+		$.widget('l5.carousel2', $.l5.carousel, {
+			insertNavigation : function ( ) {
+				this.windowFrame.after('<a class="arrow back">[Back]</a><a class="arrow forward">[Next]</a>');
+			}
+		});		
+		
+		$(function () {
+			
+			$('.infinite-carousel').carousel2({ speed : 7500, infinite : true });
+			
+			$("#my-overlay").overlay("open");
+			
+			var advanceTabIndex = 0;
+			
+			$('.steps').simpleTabs({
+				
+				init : function (o) {
+					
+					$('.next-btn', o.content).click(function () {
+						o.next();
+						return false;
+					});
+					
+				},
+				
+				beforeChange : function (clicked, o) {
+					var valid = true;
+					
+					// IF TAB IS SET; FIRST TIME THROUGH IT IS UNSET (-1)
+					if (o.index > -1)
+						valid = $('#contact-form').valid();
+					
+					// FILL OUT STEPS IN ORDER
+					if (clicked.index > advanceTabIndex + 1)
+						valid = false;						
+						
+					return valid;
+				},
+				
+				afterChange : function (clicked, o) {
+					
+					// ADVANCE LAST TAB INDEX
+					if (clicked.index > advanceTabIndex)
+						advanceTabIndex = clicked.index;
+						
+				}
+				
+			});
+			
+			$('#verify-email').keypress(function(e) {
+				if (e.keyCode=='13') {
+					$('#verify-btn').click();
+				}
+			});
+			
+			$("input[type=checkbox]").change(function () {
+				alert ( $(this).is(':checked') );
+			});
+			
+		});
+  </script>
+</head>
+
+<body id="index" class="home">
+	<div id="page">
+		<!--#include file="include/header.html" -->
+    <div id="body-area">
+    	<div id="feature">
+        <div id="carousel" class="infinite-carousel">
+          <div class="frame">
+            <ul>
+              <li><img src="images/950x310.gif" alt="[Slide #1]" /></li>
+              <li><img src="images/950x310.gif" alt="[Slide #2]" /></li>
+              <li><img src="images/950x310.gif" alt="[Slide #3]" /></li>
+            </ul>
+          </div> <!-- /.frame -->
+        </div> <!-- /.infinite-carousel -->
+      </div> <!-- /#feature -->
+      <div id="content-area" class="default">
+        <div id="primary">
+          <h5 class="hide">Primary content:</h5>
+          <header id="titlebar">
+          	<div class="left"><h1>Lorem ipsum</h1></div>
+            <div class="right">
+            	Dolor sit amet
+          	</div> <!-- /.right -->
+          </header> <!--/#titlebar -->
+          <p style="width: 200px;"><span class="ellipse" style="white-space: nowrap;">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span></p>
+          <p><span class="max100">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span></p>
+          <p><span class="chars10">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span></p>
+          <p><a href="#" class="button">Button 1</a>&nbsp;&nbsp;<a href="#" class="button2"><span>Button 2</span></a></p>
+          <ul id="tab-nav" class="tabs">
+            <li><a href="#tab1">Tab 1</a></li>
+            <li><a href="#tab2">Tab 2</a></li>
+            <li><a href="#tab3">Tab 3</a></li>
+          </ul>
+					<div id="tab1" class="tab-content">
+          	<h3>Tab 1</h3>
+	          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+           </div> <!-- /.tab-content -->
+					<div id="tab2" class="tab-content">
+          	<h3>Tab 2</h3>
+	          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+           </div> <!-- /.tab-content -->
+					<div id="tab3" class="tab-content">
+          	<h3>Tab 3</h3>
+	          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+           </div> <!-- /.tab-content -->
+          <br />
+          <p><a href="#my-overlay" rel="#my-tooltip" data-offset="" class="overlay-trigger tooltip-trigger">View overlay</a></p>
+          <div id="collapsible" class="collapsible">
+          	<h6><a href="#">Click me</a></h6>
+            <div class="content">Content goes here</div>
+          	<h6><a href="#">Click me</a></h6>
+            <div class="content">Content goes here</div>
+          	<h6><a href="#">Click me</a></h6>
+            <div class="content">Content goes here</div>
+          </div> <!-- /.collapsible -->
+          <p class="sm"><a href="#" onClick="$('#collapsible').collapsible('expand'); return false;">Expand all</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#" onClick="$('#collapsible').collapsible('collapse'); return false;">Collapse all</a></p>
+          <p><a href="#toggle-content" class="toggle">Click to toggle content &gt;&gt;</a></p>
+          <div id="toggle-content">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          </div> <!-- /#toggle-content -->
+        </div> <!-- /#content-area -->
+        <aside id="secondary">
+          <h5 class="hide">Secondary content:</h5>
+          <article>
+          	<head>
+              <h4>Sed ac arcu</h4>
+            </head>
+            <p>Sed ac arcu erat, at semper ipsum.</p>
+          </article>
+        </aside> <!-- /#secondary -->
+      </div> <!-- /#content-area -->
+    </div> <!-- /#body-area -->
+  </div> <!-- /#page -->
+	<!--#include file="include/footer.html" -->
+  
+  <div id="my-overlay" class="overlay" style="display: none;">
+  	<header>
+      <h1>[Title]</h1>
+    </header>
+    <div class="body">
+      <p>Lorem ipsum dolor</p>
+      
+      <ul id="step-nav" class="steps">
+        <li><a href="#step-1">Step 1</a></li>
+        <li><a href="#step-2">Step 2</a></li>
+        <li><a href="#step-3">Step 3</a></li>
+      </ul>
+      
+      <form id="contact-form" class="validate">
+      
+        <fieldset id="step-1" class="step default">
+          <legend>Name Information</legend>
+          <div class="form-group">
+            <label for="">First Name:</label>
+            <div class="input-group">
+              <input type="text" id="contact-first" name="contact-first" class="text required" />
+            </div> <!-- /.input-group -->
+          </div> <!-- /.form-group -->
+          <div class="form-group">
+            <label for="">Last Name:</label>
+            <div class="input-group">
+              <input type="text" id="contact-last" name="contact-last" class="text required" />
+            </div> <!-- /.input-group -->
+          </div> <!-- /.form-group -->
+          <hr />
+          <div class="submit">
+            <a href="#" class="button next-btn">Next</a>
+          </div> <!-- /submit -->
+        </fieldset>
+        
+        <fieldset id="step-2" class="step default">
+          <legend>Mailing Information</legend>
+          <div class="form-group">
+            <label for="">Street Address 1:</label>
+            <div class="input-group">
+              <input type="text" id="contact-addr-1" name="contact-addr-1" class="text required" />
+            </div> <!-- /.input-group -->
+          </div> <!-- /.form-group -->
+          <div class="form-group">
+            <label for="">Street Address 2:</label>
+            <div class="input-group">
+              <input type="text" id="contact-addr-2" name="contact-addr-1" class="text required" />
+            </div> <!-- /.input-group -->
+          </div> <!-- /.form-group -->
+          <div class="form-group">
+            <label for="">State/Province:</label>
+            <div class="input-group">
+              <input type="text" id="contact-state" name="contact-state" class="text required" />
+            </div> <!-- /.input-group -->
+          </div> <!-- /.form-group -->
+          <div class="form-group">
+            <label for="">City:</label>
+            <div class="input-group">
+              <input type="text" id="contact-city" name="contact-city" class="text required" />
+            </div> <!-- /.input-group -->
+          </div> <!-- /.form-group -->
+          <div class="form-group">
+            <label for="">Zip/Postal Code:</label>
+            <div class="input-group">
+              <input type="text" id="contact-zip" name="contact-zip" class="text required" />
+            </div> <!-- /.input-group -->
+          </div> <!-- /.form-group -->
+          <div class="form-group">
+            <label for="">Country:</label>
+            <div class="input-group">
+              <input type="text" id="contact-country" name="contact-country" class="text required" />
+            </div> <!-- /.input-group -->
+          </div> <!-- /.form-group -->
+          <div class="form-group">
+            <label for="">Phone:</label>
+            <div class="input-group">
+              <input type="text" id="contact-phone" name="contact-phone" class="text required" />
+            </div> <!-- /.input-group -->
+          </div> <!-- /.form-group -->
+          <div class="form-group">
+            <label for="">Alternate Phone:</label>
+            <div class="input-group">
+              <input type="text" id="contact-phone-2" name="contact-phone-2" class="text required" />
+            </div> <!-- /.input-group -->
+          </div> <!-- /.form-group -->
+          <div class="form-group">
+            <label for="">Email Address:</label>
+            <div class="input-group">
+              <input type="text" id="contact-email" name="contact-email" class="text required" />
+            </div> <!-- /.input-group -->
+          </div> <!-- /.form-group -->
+          <hr />
+          <div class="submit">
+            <a href="#" class="button next-btn">Next</a>
+          </div> <!-- /submit -->
+        </fieldset>
+        
+        <fieldset id="step-3" class="step default">
+          <legend>Other Information</legend>
+          <div class="form-group">
+            <label for="contact-social-media">Which do you use?</label>
+            <div class="input-group">
+              <label class="half"><input type="checkbox" class="checkbox" />&nbsp;Facebook</label><label class="half"><input type="checkbox" class="checkbox" />&nbsp;Twitter</label><br />
+              <label class="half"><input type="checkbox" class="checkbox" />&nbsp;LinkedIn</label><label class="half"><input type="checkbox" class="checkbox" />&nbsp;Location Services (Foursquare, Gowalla, etc.)</label><br /><br />
+              <label for="attendee-social-media">Twitter:</label>
+              <input type="text" id="contact-social-media" name="contact-social-media" class="text" />
+            </div> <!-- /.input-group -->
+          </div> <!-- /.form-group -->
+          <div class="form-block">
+            <label for="">Message:</label>
+            <textarea id="contact-message" cols="" rows="6"></textarea>
+          </div> <!-- /.form-block -->
+          <hr />
+          <div class="submit">
+            <input type="submit" value="Submit" class="overlay-confirm button" />
+          </div> <!-- /.submit -->
+        </fieldset>
+        
+       </form>
+       
+    </div>
+	</div> <!-- /.overlay -->
+
+  <div id="email-overlay" class="overlay" style="display: none;">
+  	<header>
+      <h1>[Title]</h1>
+    </header>
+    <div class="body">
+      <p>Lorem ipsum dolor</p>
+      <form id="" class="validate">
+        <fieldset class="default">
+          <legend>Name Information</legend>
+          <div class="form-group">
+            <label for="">Email Address:</label>
+            <div class="input-group">
+              <input type="text" id="contact-email" name="contact-email" class="text required" />
+            </div> <!-- /.input-group -->
+          </div> <!-- /.form-group -->
+        </fieldset>
+        <hr />
+        <div class="submit">
+          <input type="submit" value="Submit" />
+        </div> <!-- /.submit -->
+      </form>
+    </div>
+	</div> <!-- /.overlay -->
+  
+  <div id="my-tooltip" class="tooltip offset-right" style="display: none;">
+    <div class="body">
+      Click me!
+    </div> <!-- /.body -->
+    <div class="tip"></div>
+  </div> <!-- /tooltip -->
+
+</body>
+</html>

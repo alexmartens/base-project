@@ -1,0 +1,107 @@
+@charset "UTF-8";
+/* CSS Document */
+
+/*
+	FORM CONTROLS
+*/
+
+textarea, select, input.text { font-size: 12px; }
+textarea, input.text { color: #666; font-style: italic; }
+fieldset.default select,
+fieldset.default input.text {
+	border: solid 1px #beb1ab;
+	padding: 4px 2px;
+}
+fieldset.default input.text {
+	/*width: 294px;*/
+}
+fieldset.default textarea {
+	border: solid 1px #beb1ab;
+	padding: 4px 2px;
+	width: 294px;
+}
+fieldset.default .form-block textarea {
+	width: 98%;
+}
+
+/*
+	STATUS UTILITIES
+*/
+
+input.error {  }
+fieldset.default .form-group em,
+fieldset.default .form-block em {
+	font-size: 11px;
+	color: #999;
+	text-transform: uppercase;
+	position: absolute;
+	top: 0;
+	line-height: 30px;
+	margin-left: 2em;
+}
+strong.error { font-size: 11px; color: #666; text-transform: uppercase; color: #f00; }
+
+/*
+	GENERAL FORM LAYOUT
+*/
+
+fieldset.default {
+	border: none;
+	padding: 0;
+	margin: 0;
+	width: 100%;
+}
+fieldset.default legend {
+	font-size: 15px;
+	margin: 5px 0 10px 0;
+	padding: 0;
+}
+.form-group,
+.form-block {
+	width: 100%;
+	overflow: hidden;
+	position: relative;
+	margin: 0 0 20px 0;
+}
+fieldset.default label {
+	margin-right: 20px;
+	color: #595350;
+	font-size: 12px;
+	line-height: 24px;
+}
+fieldset.default .form-group label {
+	float: left;
+	width: 35%;
+	margin-right: 20px;
+	display: block;
+}
+fieldset.default .form-block label {
+	display: block;
+}
+fieldset.default .input-group { position: relative; width: 60%; float: left; }
+fieldset.default .input-group label { float: none; width: auto; display: inline-block; text-align: left; vertical-align: top; }
+fieldset.default .input-group label.half { width: 40%; }
+
+.submit { text-align: right; }
+.submit a { line-height: 30px; vertical-align: middle; }
+.overlay .submit { padding-left: 130px; }
+
+.form-block-controls { padding-left: 0; }
+.form-block-controls a { line-height: 30px; vertical-align: middle; }
+
+fieldset.default span.field {
+	float: left;
+	margin-right: 10px;
+}
+fieldset.default span.last {
+	margin-right: 0;
+}
+fieldset.default span label {
+	float: none;
+	width: auto;
+	margin-right: auto;
+	display: block;
+}
+fieldset.default span input {
+	display: block;
+}

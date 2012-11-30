@@ -1,0 +1,148 @@
+/*
+	Description: Base styles
+*/
+
+/* Body */
+body {
+	color: #333;
+	font-size: 14px;
+	font-family: Arial, Helvetica, sans-serif;
+	line-height: 18px;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+	font-weight: 400;
+	line-height: 1.3em;
+	margin-bottom: 10px;
+}
+h1 { font-size: 30px; }
+h2 { font-size: 22px; }
+h3 { font-size: 18px; }
+h4 { font-size: 16px; }
+h5 { font-size: 14px; }
+h6 { font-size: 12px; }
+	
+/* Anchors */
+a { outline: 0; }
+a img { border: 0px; text-decoration: none ;}
+a:link, a:visited { }
+a:hover, a:active {
+	text-decoration: none;
+}
+
+/* Horizontal rule */
+hr {
+  border-color: #333;
+  border-style: dotted;
+  border-width: 1px 0 0;
+  clear: both;
+  margin: 10px 0;
+  height: 0;
+}
+
+/* Paragraphs */
+p { margin-bottom: 20px; }
+
+strong, b { font-weight: bold; }
+em, i { font-style: italic; }
+
+/* Lists */
+ul {
+	list-style: outside disc;
+	margin: 1em 0 1.5em 1.5em;
+}
+ol {
+	list-style: outside decimal;
+	margin: 1em 0 1.5em 1.5em;
+}
+dl { margin: 0 0 1.5em 0; }
+dt { font-weight: bold; }
+dd { margin-left: 1.5em; }
+
+/* Quotes */
+blockquote { font-style: italic; }
+cite {}
+q {}
+
+/* Tables */
+table {margin: .5em auto 1.5em auto; width: 98%;}
+	
+/* Thead */
+thead th {padding: .5em .4em; text-align: left;}
+thead td {}
+
+/* Tbody */
+tbody td {padding: .5em .4em;}
+tbody th {}
+
+tbody .alt td {}
+tbody .alt th {}
+
+/* Tfoot */
+tfoot th {}
+tfoot td {}
+	
+/* HTML5 tags */
+header, section, footer,
+aside, nav, article, figure {
+	display: block;
+}
+
+/*
+	Non-semantic helper classes 
+*/
+
+/*.body {clear: both; margin: 0 auto; width: 800px;}*/
+img.right figure.right { float: right; margin: 0 0 10px 10px; }
+img.left, figure.left { float: left; margin: 0 10px 10px 0; }
+
+.hide {
+	display: none;
+}
+.show {
+	display: block;
+}
+.invisible {
+	visibility: hidden;
+}
+.tight {
+	margin-bottom: 0 !important;
+}
+.sm { font-size: 10px !important; }
+.xsm { font-size: 8px !important; }
+.back {
+	background: url(images/arrow-back.gif) 0px 3px no-repeat;
+	padding-left: 12px;
+}
+.dem { color: #999; font-style: italic; }
+
+.print-only { display: none; }
+
+.ir { text-indent: -999px; overflow: hidden; display: block; }
+.iir { text-indent: -999px; overflow: hidden; display: inline-block; }
+
+ul.span,
+nav ul { list-style: none; margin: 0; padding: 0; }
+ul.span li,
+nav ul li { margin: 0; padding: 0; }
+ul.span li a,
+nav ul li a { text-decoration: none; overflow: hidden; }
+
+ul.span,
+nav.span ul { overflow: hidden; }
+ul.span li,
+nav.span ul li { float: left; margin-right: 20px; }
+ul.span li.last-child,
+nav.span ul li.last-child { margin-right: 0; }
+nav.span ul li ul { display: none; position: absolute; }
+nav.span ul li ul li { float: none; }
+nav.span ul li.mouseover ul { display: block; }
+
+.clear {
+	clear: both;
+	display: block;
+	font-size: 0;
+	height: 0;
+	line-height: 0;
+}

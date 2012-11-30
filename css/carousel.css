@@ -1,0 +1,52 @@
+@charset "UTF-8";
+/* CSS Document */
+
+.infinite-carousel {
+  position: relative;
+	height: 310px;
+	width: 950px;
+}
+.infinite-carousel .pages { display: none; }
+.infinite-carousel .frame {
+  width: 950px; /* .infinite-carousel width - (.wrapper margin-left + .wrapper margin-right) */
+  height: 310px;
+  overflow: auto;
+  position: absolute;
+  top: 0;
+}
+.infinite-carousel .frame ul {
+  width: 9999px;
+  list-style-image: none;
+  list-style-position: outside;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 0;
+}
+.infinite-carousel ul li {
+  display: block;
+  float: left;
+  padding: 0;
+	margin: 0;
+  height: 310px;
+  width: 950px;
+}
+.infinite-carousel .arrow {
+  display: block;
+  height: 45px;
+  width: 23px;
+  text-indent: -999px;
+	overflow: hidden;
+  position: absolute;
+  top: 132px;
+  cursor: pointer;
+}
+.infinite-carousel .forward {
+	background: url(images/ico-carousel-arrow-right.gif) no-repeat;
+  right: 20px;
+}
+.infinite-carousel .back {
+	background: url(images/ico-carousel-arrow-left.gif) no-repeat;
+  left: 20px;
+}

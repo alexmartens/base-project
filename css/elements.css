@@ -1,0 +1,129 @@
+@charset "UTF-8";
+/* CSS Document */
+
+/*
+	BUTTON
+	http://dev.opera.com/articles/view/beautiful-ui-styling-with-css3-text-shadow-box-shadow-and-border-radius/
+*/
+
+.button {
+	border: none;
+	padding: 8px 30px;
+	border-radius: 4px;
+	background: lightgreen;
+	color: #FFF;
+	font: normal 12px arial, sans-serif;
+	text-decoration: none;
+}
+
+/*
+	SLIDING DOOR BUTTON
+*/
+
+.button2 {
+	background: transparent url('images/btn-right.png') no-repeat scroll top right;
+	color: #FFF;
+	display: inline-block;
+	font: normal 12px arial, sans-serif;
+	padding-right: 3px; /* sliding doors padding */
+	text-decoration: none;
+}
+.button2 span {
+	background: transparent url('images/btn-left.png') no-repeat;
+	display: inline-block;
+	padding: 0 17px 0 20px;
+	line-height: 30px;
+	vertical-align: middle;
+}
+
+/*
+	CONTROL BAR
+*/
+
+.ctrl-bar,
+#titlebar { width: 100%; overflow: hidden; }
+#titlebar { border-bottom: 1px solid #666; margin-bottom: 20px; }
+#titlebar h1 { margin-bottom: 0; }
+.ctrl-bar .left,
+#titlebar .left { float: left; }
+.ctrl-bar .right,
+#titlebar .right { float: right }
+#titlebar .left h1,
+#titlebar .right { line-height: 40px; vertical-align: 0% !important; }
+
+/*
+	TOOLTIP
+*/
+
+.tooltip {
+	position: absolute;
+	width: 200px;
+	z-index: 100;
+	margin-left: -100px; /* Half the width */
+}
+.tooltip .body {
+	border: 1px solid #e8e8e8;
+	background-color: #fff;
+	border-radius: 6px;
+	padding: 10px 20px;
+}
+.tooltip.offset-left .body {
+	margin-left: -50px;
+	width: 160px;
+}
+.tooltip.offset-right .body {
+	margin-left: 50px;
+	width: 160px;
+}
+.tooltip .tip { height: 15px; background: url(images/tooltip-arrow.png) no-repeat center bottom; margin-top: -1px; }
+
+/*
+	SIMPLE TABS
+*/
+
+ul.steps,
+ul.tabs {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	overflow: hidden;
+	margin-bottom: 20px; 
+	border-bottom: 3px solid #666;
+}
+ul.steps li,
+ul.tabs li {
+	margin: 0 1px 0 0;
+	float: left;
+}
+ul.steps li a,
+ul.tabs li a {
+	display: block;
+	padding: 8px 30px;
+	background-color: #ececec;
+	cursor: pointer;
+	float: left;
+	text-align: center;
+	font-size: 11px;
+	font-style: normal;
+	color: #000;
+	outline: none;
+	text-decoration: none;
+}
+ul.steps li a.selected,
+ul.tabs li a.selected {
+	font-weight: bold;
+	color: #fff;
+	background-color: #666;
+}
+
+/*
+	COLLAPSIBLE
+*/
+
+.collapsible .content { padding-bottom: 10px; }
+.collapsible h6 { border-top: 1px solid #cbcbcb; padding-left: 20px; padding-top: 10px; margin-bottom: 0; padding-bottom: 10px; background: url(images/ico-plus.gif) no-repeat center left; }
+.collapsible h6.active { background: url(images/ico-minus.gif) no-repeat left center; }
+.collapsible h6.first { border-top: none; }
+.collapsible h6 a { text-decoration: none; }
+.collapsible .open { }
